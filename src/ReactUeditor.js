@@ -66,9 +66,9 @@ class ReactUeditor extends React.Component {
   }
 
   componentDidMount() {
-    let {ueditorPath} = this.props
+    let {ueditorPath,configFileName} = this.props
     if (!window.UE && !window.UE_LOADING_PROMISE) {
-      window.UE_LOADING_PROMISE = this.createScript(ueditorPath + '/ueditor.config.js').then(() => {
+      window.UE_LOADING_PROMISE = this.createScript(ueditorPath + configFileName).then(() => {
         return this.props.debug
           ? this.createScript(ueditorPath + '/ueditor.all.js')
           : this.createScript(ueditorPath + '/ueditor.all.min.js')
